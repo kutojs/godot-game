@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster_alert.wav-96d79640123ddafa89f9d26be881a57d.sample"
+
+[deps]
+
+source_file="res://sfx/monster_alert.wav"
+dest_files=[ "res://.import/monster_alert.wav-96d79640123ddafa89f9d26be881a57d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,1036 @@
+[gd_scene load_steps=72 format=2]
+
+[ext_resource path="res://art assets/player.png" type="Texture" id=1]
+[ext_resource path="res://player/Player.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://art assets/light_area.png" type="Texture" id=4]
+[ext_resource path="res://art assets/vignette.png" type="Texture" id=5]
+[ext_resource path="res://art assets/gun_ui.png" type="Texture" id=6]
+[ext_resource path="res://player/UI.gd" type="Script" id=7]
+[ext_resource path="res://player/GunVisuals.gd" type="Script" id=8]
+[ext_resource path="res://player/gun_ui/BulletSlot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://art assets/effects.png" type="Texture" id=10]
+[ext_resource path="res://player/MuzzleFlash.gd" type="Script" id=11]
+[ext_resource path="res://art assets/health_bar.png" type="Texture" id=12]
+[ext_resource path="res://player/HealthUI.gd" type="Script" id=13]
+[ext_resource path="res://Effects/BloodSprayer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://art assets/PopUpText.tres" type="DynamicFont" id=15]
+[ext_resource path="res://sfx/cock_gun_maybe.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/grab_thing3.wav" type="AudioStream" id=17]
+[ext_resource path="res://sfx/grab_thing2.wav" type="AudioStream" id=18]
+[ext_resource path="res://sfx/drop_bullet3.wav" type="AudioStream" id=19]
+[ext_resource path="res://sfx/drop_bullet2.wav" type="AudioStream" id=20]
+[ext_resource path="res://sfx/drop_bullet.wav" type="AudioStream" id=21]
+[ext_resource path="res://misc/PlayRandomSound.gd" type="Script" id=22]
+[ext_resource path="res://sfx/grab_bullet3.wav" type="AudioStream" id=23]
+[ext_resource path="res://sfx/grab_bullet.wav" type="AudioStream" id=24]
+[ext_resource path="res://sfx/grab_bullet2.wav" type="AudioStream" id=25]
+[ext_resource path="res://sfx/click.wav" type="AudioStream" id=26]
+[ext_resource path="res://sfx/revolver hammer click.wav" type="AudioStream" id=27]
+[ext_resource path="res://sfx/gunshot.wav" type="AudioStream" id=28]
+[ext_resource path="res://sfx/slide_step.wav" type="AudioStream" id=29]
+[ext_resource path="res://sfx/grab_ground.wav" type="AudioStream" id=30]
+[ext_resource path="res://sfx/slide_step3.wav" type="AudioStream" id=31]
+[ext_resource path="res://sfx/slide_step2.wav" type="AudioStream" id=32]
+[ext_resource path="res://sfx/cough2.wav" type="AudioStream" id=33]
+[ext_resource path="res://sfx/cough.wav" type="AudioStream" id=34]
+[ext_resource path="res://sfx/cough3.wav" type="AudioStream" id=35]
+[ext_resource path="res://sfx/player_hurt.wav" type="AudioStream" id=36]
+[ext_resource path="res://sfx/player_hurt2.wav" type="AudioStream" id=37]
+[ext_resource path="res://sfx/player_die.wav" type="AudioStream" id=38]
+[ext_resource path="res://sfx/inject_syringe.wav" type="AudioStream" id=39]
+[ext_resource path="res://sfx/inventory_close.wav" type="AudioStream" id=40]
+[ext_resource path="res://sfx/inventory_open.wav" type="AudioStream" id=41]
+[ext_resource path="res://art assets/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=42]
+[ext_resource path="res://art assets/pointer.png" type="Texture" id=43]
+[ext_resource path="res://sfx/long_cough.wav" type="AudioStream" id=44]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 37.4672
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.775194, 1 )
+colors = PoolColorArray( 0.654785, 0.654785, 0.654785, 1, 0.788235, 0.788235, 0.788235, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 13.21
+flag_disable_z = true
+spread = 52.43
+gravity = Vector3( 0, -20, 0 )
+initial_velocity = 249.58
+initial_velocity_random = 0.7
+angular_velocity = 157.69
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 7.57
+scale_random = 0.54
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 52.43
+gravity = Vector3( 0, -20, 0 )
+initial_velocity_random = 0.7
+angular_velocity = 157.69
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 7.57
+scale_random = 0.54
+color_ramp = SubResource( 3 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 14.8697
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 18.3389
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 19.3951
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 695.116, -85.9847 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 695.116, -85.9847 ), Vector2( 334.71, -85.9846 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 334.71, -85.9846 ), Vector2( 695.116, -85.9847 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Syringe:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Syringe/Graphics/SyringeTop:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -63.2985 ), Vector2( -6.10352e-05, -33.0697 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Syringe/Graphics/Liquid/Polygon2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.041 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "heal"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Legs/IdleLegs:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Legs/SquirmLegs2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Legs/SquirmLegs3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("../../InjectSyringeSound")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Legs/IdleLegs:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Legs/SquirmLegs2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Legs/SquirmLegs3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Syringe:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 60.894, 79.5633 )
+
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -411.137, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -411.137, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -411.137, 0 ) ]
+}
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+uniform sampler2D vignette_tx : hint_albedo;
+
+void fragment() {
+	vec3 col = texture(vignette_tx, SCREEN_UV).xyz;
+	COLOR.rgb = vec3(col.x);
+	COLOR.a = 1.0 - col.x;
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/vignette_tx = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.529412, 0.529412, 0.529412, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="DynamicFont" id=25]
+size = 24
+font_data = ExtResource( 42 )
+
+[sub_resource type="Animation" id=26]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=27]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+z_index = 5
+z_as_relative = false
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="BodyPivot" type="Node2D" parent="Graphics"]
+
+[node name="Gun" type="Sprite" parent="Graphics/BodyPivot"]
+self_modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+position = Vector2( 20.1394, 47.6437 )
+rotation = 2.19055
+texture = ExtResource( 1 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 100, 152, 44, 34 )
+
+[node name="Body" type="Sprite" parent="Graphics/BodyPivot"]
+self_modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+position = Vector2( -20.25, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 3.35522, 0.18499, 78.7595, 142.694 )
+
+[node name="BloodSprayer" parent="Graphics/BodyPivot" instance=ExtResource( 14 )]
+position = Vector2( -16.4817, -44.545 )
+
+[node name="UpperArmPivot" type="Position2D" parent="Graphics"]
+
+[node name="UpperArm" type="Sprite" parent="Graphics/UpperArmPivot"]
+self_modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+show_behind_parent = true
+position = Vector2( 22.4492, -0.140308 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 95.5346, 47.2066, 75.6252, 34.4547 )
+
+[node name="LowerArmPivot" type="Position2D" parent="Graphics/UpperArmPivot"]
+position = Vector2( 51.584, 0 )
+
+[node name="LowerArm" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot"]
+self_modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+position = Vector2( 31.7325, -0.502678 )
+rotation = 0.0890931
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 95.8857, 10.1994, 78.1885, 33.4496 )
+
+[node name="HandBase" type="Position2D" parent="Graphics/UpperArmPivot/LowerArmPivot"]
+position = Vector2( 75.2281, 0 )
+
+[node name="Gun" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase"]
+self_modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+position = Vector2( 18.297, -10.2402 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 100, 152, 44, 34 )
+
+[node name="MuzzleFlash" type="Node2D" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun"]
+script = ExtResource( 11 )
+
+[node name="Particles2D" type="Particles2D" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash"]
+visible = false
+position = Vector2( 32.16, -10.0697 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 4 )
+
+[node name="SmokeTrail" type="Particles2D" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash"]
+position = Vector2( 21.6488, -9.01857 )
+emitting = false
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 5 )
+
+[node name="Sprites" type="Node2D" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash"]
+modulate = Color( 0.854902, 0.752941, 0.207843, 1 )
+position = Vector2( 45.9549, -11.5625 )
+
+[node name="Sprite" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash/Sprites"]
+position = Vector2( -5.42728, 1.12085 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 7, 5, 39, 25 )
+
+[node name="Sprite2" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash/Sprites"]
+visible = false
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 9, 35, 50, 25 )
+
+[node name="Sprite3" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash/Sprites"]
+visible = false
+position = Vector2( -3.42154, 0.412945 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 8, 64, 43, 30 )
+
+[node name="Timer" type="Timer" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash"]
+wait_time = 0.02
+one_shot = true
+
+[node name="StopSmokeTimer" type="Timer" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase/Gun/MuzzleFlash"]
+wait_time = 2.0
+one_shot = true
+
+[node name="HandClosed" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase"]
+visible = false
+self_modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+position = Vector2( 5.66164, -4.14554 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 100, 83, 28.9732, 22 )
+
+[node name="HandOpen" type="Sprite" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase"]
+self_modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+position = Vector2( 16.5505, -8.4731 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 100, 106, 52, 35 )
+
+[node name="GunRayCast2D" type="RayCast2D" parent="Graphics/UpperArmPivot/LowerArmPivot/HandBase"]
+position = Vector2( 8.01812, -13.3635 )
+enabled = true
+cast_to = Vector2( 2000, 0 )
+collision_mask = 3
+
+[node name="Hand" type="KinematicBody2D" parent="."]
+collision_layer = 0
+
+[node name="HandCollider" type="CollisionShape2D" parent="Hand"]
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Hand"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="PickupArea" type="Area2D" parent="Hand"]
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/PickupArea"]
+shape = SubResource( 7 )
+
+[node name="HitArea" type="Area2D" parent="Hand"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/HitArea"]
+shape = SubResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+texture_scale = 3.0
+energy = 0.4
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="UI" type="Node2D" parent="Camera2D"]
+light_mask = 0
+z_index = 100
+z_as_relative = false
+script = ExtResource( 7 )
+
+[node name="GunUI" type="Node2D" parent="Camera2D/UI"]
+light_mask = 0
+position = Vector2( 695.116, -85.9847 )
+scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 8 )
+
+[node name="NextRoundPos" type="Position2D" parent="Camera2D/UI/GunUI"]
+position = Vector2( -169.623, -94.3691 )
+rotation = -0.98188
+
+[node name="Sprite" type="Sprite" parent="Camera2D/UI/GunUI/NextRoundPos"]
+self_modulate = Color( 0.807843, 0.807843, 0.807843, 1 )
+position = Vector2( 0, -16.945 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 43 )
+
+[node name="ChamberPivot" type="Position2D" parent="Camera2D/UI/GunUI"]
+light_mask = 0
+position = Vector2( -105.507, -55.8793 )
+
+[node name="GunChamber" type="Sprite" parent="Camera2D/UI/GunUI/ChamberPivot"]
+self_modulate = Color( 0.403922, 0.403922, 0.403922, 1 )
+light_mask = 0
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 8, 5, 153, 153 )
+
+[node name="BulletSlot2" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( -42.7209, -24.7488 )
+
+[node name="BulletSlot" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( -43.8995, 27.695 )
+
+[node name="BulletSlot4" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( -0.294556, 52.1491 )
+
+[node name="BulletSlot5" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( 44.4877, 25.9292 )
+
+[node name="BulletSlot6" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( 44.7836, -24.0866 )
+
+[node name="BulletSlot3" parent="Camera2D/UI/GunUI/ChamberPivot/GunChamber" instance=ExtResource( 9 )]
+light_mask = 0
+position = Vector2( -0.294556, -50.0867 )
+
+[node name="GunHandle" type="Sprite" parent="Camera2D/UI/GunUI"]
+self_modulate = Color( 0.294118, 0.298039, 0.298039, 1 )
+light_mask = 0
+position = Vector2( 2.97302, -10.9011 )
+rotation = -0.10971
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 166, 1, 109, 444 )
+
+[node name="Bullets" type="Node2D" parent="Camera2D/UI/GunUI"]
+light_mask = 0
+position = Vector2( -310.776, 256.383 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/UI/GunUI"]
+autoplay = "hidden"
+anims/hidden = SubResource( 9 )
+anims/slide_in = SubResource( 10 )
+anims/slide_out = SubResource( 11 )
+
+[node name="DropBulletSounds" type="Node2D" parent="Camera2D/UI/GunUI"]
+script = ExtResource( 22 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI/DropBulletSounds"]
+stream = ExtResource( 21 )
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI/DropBulletSounds"]
+stream = ExtResource( 20 )
+bus = "Sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI/DropBulletSounds"]
+stream = ExtResource( 19 )
+bus = "Sfx"
+
+[node name="GrabBulletSound" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI"]
+stream = ExtResource( 25 )
+bus = "Sfx"
+
+[node name="InsertBulletSound" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI"]
+stream = ExtResource( 23 )
+bus = "Sfx"
+
+[node name="ReturnBulletSound" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI"]
+stream = ExtResource( 24 )
+bus = "Sfx"
+
+[node name="RotateChamberSound" type="AudioStreamPlayer" parent="Camera2D/UI/GunUI"]
+stream = ExtResource( 26 )
+bus = "Sfx"
+
+[node name="HealthUI" type="Node2D" parent="Camera2D/UI"]
+position = Vector2( -411.137, 0 )
+script = ExtResource( 13 )
+
+[node name="Graphics" type="Node2D" parent="Camera2D/UI/HealthUI"]
+
+[node name="BackDrop" type="Polygon2D" parent="Camera2D/UI/HealthUI/Graphics"]
+light_mask = 0
+z_index = -1
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -291.16, -349.311, -276.444, -302.221, -247.949, -264.305, -234.868, -228.034, -237.543, -215.548, -228.327, -181.061, -237.841, -175.115, -236.057, -169.763, -239.625, -166.493, -236.652, -164.114, -241.111, -159.655, -240.219, -150.438, -236.652, -144.79, -238.236, -134.327, -274.61, -132.658, -269.369, -85.7911, -256.451, -74.2094, -248.433, -57.7278, -230.615, -18.0829, -225.27, 17.9985, -229.279, 70.1161, -236, 116, -249, 176, -257, 248, -259, 291, -266, 317, -344, 346, -408, 346, -492, 281, -529, 54, -489, -145, -450, -256, -419, -324, -335, -361 )
+
+[node name="Tract" type="Polygon2D" parent="Camera2D/UI/HealthUI/Graphics"]
+light_mask = 0
+color = Color( 0.65098, 0.247059, 0.247059, 1 )
+polygon = PoolVector2Array( -310.298, -151.908, -309.944, -105.239, -309.449, -10.7454, -309.052, 162.281, -304.891, 367, -321.728, 353, -316.989, 150.773, -315.799, -44.0808, -319.49, -142.009 )
+
+[node name="BrainBackDrop" type="Sprite" parent="Camera2D/UI/HealthUI/Graphics"]
+self_modulate = Color( 0.65098, 0.247059, 0.247059, 1 )
+light_mask = 0
+position = Vector2( -313, -193.357 )
+rotation = 1.57079
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 2, 125, 184, 128 )
+
+[node name="Brain" type="Sprite" parent="Camera2D/UI/HealthUI/Graphics"]
+light_mask = 0
+position = Vector2( -313, -213 )
+texture = ExtResource( 12 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 1, -3, 117, 125 )
+
+[node name="Parasite" type="KinematicBody2D" parent="Camera2D/UI/HealthUI"]
+position = Vector2( -313, 211.707 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="Parasite" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite"]
+light_mask = 0
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 207, 4, 38, 145 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/UI/HealthUI/Parasite/Parasite"]
+autoplay = "idle"
+anims/heal = SubResource( 12 )
+anims/idle = SubResource( 13 )
+
+[node name="Legs" type="Node2D" parent="Camera2D/UI/HealthUI/Parasite/Parasite"]
+
+[node name="IdleLegs" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Legs"]
+light_mask = 0
+position = Vector2( 0, -6.94974 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 128, 71, 50, 32 )
+
+[node name="SquirmLegs2" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Legs"]
+visible = false
+light_mask = 0
+position = Vector2( 0, -9.536 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 128, 37, 50, 32 )
+
+[node name="SquirmLegs3" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Legs"]
+visible = false
+light_mask = 0
+position = Vector2( 0, -10.6205 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 125, 4, 56, 32 )
+
+[node name="ParasiteBackDrop" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite"]
+self_modulate = Color( 0.65098, 0.247059, 0.247059, 1 )
+show_behind_parent = true
+light_mask = 0
+position = Vector2( 0, 4.30203 )
+z_index = -1
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 257, 2, 72, 184 )
+
+[node name="Syringe" type="Node2D" parent="Camera2D/UI/HealthUI/Parasite/Parasite"]
+position = Vector2( 86.267, 0 )
+rotation = 1.57079
+
+[node name="Graphics" type="Node2D" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Syringe"]
+
+[node name="Liquid" type="Node2D" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Syringe/Graphics"]
+position = Vector2( 0, 11.4445 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Syringe/Graphics/Liquid"]
+color = Color( 0.490196, 0.988235, 0.239216, 1 )
+polygon = PoolVector2Array( 7.45847, 0.493362, -7.71189, 0.493362, -7.99284, -31.252, 7.5521, -30.8774 )
+
+[node name="SyringeTop" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Syringe/Graphics"]
+self_modulate = Color( 0.811765, 0.811765, 0.811765, 1 )
+position = Vector2( 0, -63.2985 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 345, 7, 18, 89 )
+
+[node name="SyringeBase" type="Sprite" parent="Camera2D/UI/HealthUI/Parasite/Parasite/Syringe/Graphics"]
+self_modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 373, 17, 18, 116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/HealthUI/Parasite"]
+shape = SubResource( 14 )
+
+[node name="ParasiteStartPos" type="Position2D" parent="Camera2D/UI/HealthUI"]
+position = Vector2( -313, 211.328 )
+
+[node name="ParasiteEndPos" type="Position2D" parent="Camera2D/UI/HealthUI"]
+position = Vector2( -313, -113.352 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/UI/HealthUI"]
+autoplay = "hidden"
+anims/hidden = SubResource( 15 )
+anims/slide_in = SubResource( 16 )
+anims/slide_out = SubResource( 17 )
+
+[node name="HurtTimer" type="Timer" parent="Camera2D/UI/HealthUI"]
+wait_time = 2.0
+autostart = true
+
+[node name="Syringes" type="Node2D" parent="Camera2D/UI/HealthUI"]
+position = Vector2( -165.126, 239.279 )
+
+[node name="Label" type="Label" parent="Camera2D/UI/HealthUI"]
+margin_left = -230.32
+margin_top = -299.828
+margin_right = -10.3203
+margin_bottom = -198.828
+custom_fonts/font = ExtResource( 15 )
+text = "Right click to close inventory"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoughSounds" type="Node2D" parent="Camera2D/UI/HealthUI"]
+script = ExtResource( 22 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 34 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 33 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 35 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 34 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 33 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 35 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/CoughSounds"]
+stream = ExtResource( 44 )
+bus = "Sfx"
+
+[node name="HurtSounds" type="Node2D" parent="Camera2D/UI/HealthUI"]
+script = ExtResource( 22 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/HurtSounds"]
+stream = ExtResource( 36 )
+volume_db = -10.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI/HurtSounds"]
+stream = ExtResource( 37 )
+volume_db = -10.0
+bus = "Sfx"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI"]
+stream = ExtResource( 38 )
+volume_db = -5.0
+
+[node name="InjectSyringeSound" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI"]
+stream = ExtResource( 39 )
+volume_db = 6.0
+
+[node name="PickupSyringeSound" type="AudioStreamPlayer" parent="Camera2D/UI/HealthUI"]
+stream = ExtResource( 18 )
+bus = "Sfx"
+
+[node name="InvOpen" type="AudioStreamPlayer" parent="Camera2D/UI"]
+stream = ExtResource( 41 )
+bus = "Sfx"
+
+[node name="InvClose" type="AudioStreamPlayer" parent="Camera2D/UI"]
+stream = ExtResource( 40 )
+bus = "Sfx"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="TextureRect" parent="CanvasLayer"]
+material = SubResource( 19 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartPanel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.5
+margin_top = -49.5
+margin_right = 83.5
+margin_bottom = 49.5
+custom_styles/panel = SubResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/RestartPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -2.26166
+margin_right = 35.0
+margin_bottom = 39.7383
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/normal = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
+text = "Retry?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/RestartPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.5
+margin_top = -54.7905
+margin_right = 50.5
+margin_bottom = -5.79053
+custom_fonts/font = ExtResource( 15 )
+text = "You Died"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RestartPanel"]
+autoplay = "default"
+anims/default = SubResource( 26 )
+anims/fade_in = SubResource( 27 )
+
+[node name="PickupSyringeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "Sfx"
+
+[node name="PickupGunSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+bus = "Sfx"
+
+[node name="PickupBulletSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "Sfx"
+
+[node name="GunHammerClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+bus = "Sfx"
+
+[node name="Gunshot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+bus = "Sfx"
+
+[node name="GrabGround" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = -15.0
+bus = "Sfx"
+
+[node name="SlideSounds" type="Node2D" parent="."]
+script = ExtResource( 22 )
+stop_all_on_play = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SlideSounds"]
+stream = ExtResource( 29 )
+volume_db = -20.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SlideSounds"]
+stream = ExtResource( 32 )
+volume_db = -20.0
+bus = "Sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SlideSounds"]
+stream = ExtResource( 31 )
+volume_db = -20.0
+bus = "Sfx"
+
+[connection signal="timeout" from="Camera2D/UI/HealthUI/HurtTimer" to="Camera2D/UI/HealthUI" method="timer_hurt"]

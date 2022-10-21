@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pickups/Pickup.gd" type="Script" id=1]
+[ext_resource path="res://art assets/player.png" type="Texture" id=2]
+[ext_resource path="res://art assets/white_sq.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.8041, 36.9161 )
+
+[node name="Health" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.247059, 0.247059, 0.247059, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 16, 152, 15, 75 )
+
+[node name="Sprite" type="Sprite" parent="Sprite"]
+self_modulate = Color( 0.454902, 1, 0.321569, 1 )
+position = Vector2( 0.420448, -2.1548 )
+scale = Vector2( 0.139395, 0.602545 )
+texture = ExtResource( 3 )

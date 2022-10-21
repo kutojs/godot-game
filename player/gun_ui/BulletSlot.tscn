@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art assets/gun_ui.png" type="Texture" id=1]
+[ext_resource path="res://player/gun_ui/BulletSlot.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.9761
+
+[node name="BulletSlot" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="BulletReady" type="Sprite" parent="."]
+self_modulate = Color( 0.933333, 0.894118, 0.286275, 1 )
+light_mask = 0
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 37, 330, 48, 49 )
+
+[node name="BulletFired" type="Sprite" parent="."]
+self_modulate = Color( 0.933333, 0.894118, 0.286275, 1 )
+light_mask = 0
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 89, 330, 48, 49 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

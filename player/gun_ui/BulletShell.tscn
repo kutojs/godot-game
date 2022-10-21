@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://art assets/gun_ui.png" type="Texture" id=1]
+[ext_resource path="res://player/gun_ui/BulletShell.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.813953, 1 )
+colors = PoolColorArray( 0.760742, 0.760742, 0.760742, 1, 0.862745, 0.862745, 0.862745, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 4.66
+flag_disable_z = true
+gravity = Vector3( 0, -98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 30.0
+scale_random = 0.57
+color_ramp = SubResource( 3 )
+
+[node name="BulletShell" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -40.5958 )
+amount = 16
+lifetime = 0.5
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+local_coords = false
+process_material = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.933333, 0.894118, 0.286275, 1 )
+light_mask = 0
+position = Vector2( 0, 16.4217 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 93, 213, 54, 110 )

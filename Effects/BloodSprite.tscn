@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Effects/SetRandomChildVisible.gd" type="Script" id=1]
+[ext_resource path="res://art assets/effects.png" type="Texture" id=2]
+[ext_resource path="res://Effects/BloodSprite.gd" type="Script" id=3]
+[ext_resource path="res://sfx/splash5.wav" type="AudioStream" id=4]
+[ext_resource path="res://sfx/splash2.wav" type="AudioStream" id=5]
+[ext_resource path="res://sfx/splash3.wav" type="AudioStream" id=6]
+[ext_resource path="res://misc/PlayRandomSound.gd" type="Script" id=7]
+
+[node name="BloodSprite" type="Node2D"]
+modulate = Color( 0.345098, 0.109804, 0.109804, 1 )
+script = ExtResource( 3 )
+
+[node name="ShowTimer" type="Timer" parent="."]
+
+[node name="Decals" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Decals"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 61, 2, 76, 68 )
+
+[node name="Sprite2" type="Sprite" parent="Decals"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 63, 82, 77, 93 )
+
+[node name="Sprite3" type="Sprite" parent="Decals"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 146, 0, 85, 88 )
+
+[node name="SplatterSounds" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource( 5 )
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource( 6 )
+bus = "Sfx"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource( 4 )
+bus = "Sfx"
+
+[connection signal="timeout" from="ShowTimer" to="." method="show"]

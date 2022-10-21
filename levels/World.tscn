@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://pickups/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://zombie/Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/Health.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/Bullets.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art assets/white_sq.png" type="Texture" id=6]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "white_sq.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 0.145098, 0.145098, 0.145098, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 274.547, 115.167, 259.445, -113.251, 368.935, -100.037, 365.159, 192.564, 8.37488, 186.901, 163.17, 120.83, -195.502, 192.564, -250.247, -130.241, 151.844, -141.567, -40.7066, 353.023, -227.594, 370.013, -650.449, 677.716, -601.368, 258.636, -418.256, 262.411, -380.501, 392.666, 776.689, 602.206, 259.445, 324.707, 523.73, 302.054, 888.066, 302.054, 776.689, 111.391, 555.822, 147.258 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 5, 4 ), PoolIntArray( 6, 4, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 11, 14, 10, 9 ), PoolIntArray( 15, 9, 16, 17, 18 ), PoolIntArray( 19, 18, 17, 20 ) ]
+outlines = [ PoolVector2Array( -250.247, -130.241, 151.844, -141.567, 163.17, 120.83, 274.547, 115.167, 259.445, -113.251, 368.935, -100.037, 365.159, 192.564, 8.37488, 186.901, -40.7066, 353.023, 259.445, 324.707, 523.73, 302.054, 555.822, 147.258, 776.689, 111.391, 888.066, 302.054, 776.689, 602.206, -650.449, 677.716, -601.368, 258.636, -418.256, 262.411, -380.501, 392.666, -227.594, 370.013, -195.502, 192.564 ) ]
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.541176, 0.541176, 0.541176, 1 )
+position = Vector2( 58.7216, 18.3477 )
+scale = Vector2( 75.0868, 43.4965 )
+texture = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 7
+z_as_relative = false
+tile_set = SubResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -262154, 0, 0, -327674, 0, 0, -327667, 0, 0, -196618, 0, 0, -262138, 0, 0, -262131, 0, 0, -131082, 0, 0, -196602, 0, 0, -196595, 0, 0, -65546, 0, 0, -131066, 0, 0, -131059, 0, 0, -10, 0, 0, -65530, 0, 0, -65523, 0, 0, 65526, 0, 0, 6, 0, 0, 13, 0, 0, 131062, 0, 0, 65542, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 196598, 0, 0, 131078, 0, 0, 131085, 0, 0, 262134, 0, 0, 196621, 0, 0, 327670, 0, 0, 262157, 0, 0, 393206, 0, 0, 327693, 0, 0, 458742, 0, 0, 393229, 0, 0, 524278, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 589814, 0, 0 )
+
+[node name="Gun" parent="." instance=ExtResource( 1 )]
+position = Vector2( -205.264, 51.473 )
+
+[node name="Health" parent="." instance=ExtResource( 4 )]
+position = Vector2( -138.593, 182.434 )
+
+[node name="Health2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -171.135, 232.437 )
+
+[node name="Health3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -190.977, 349.904 )
+
+[node name="Health4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -281.459, 378.478 )
+
+[node name="Bullets" parent="." instance=ExtResource( 5 )]
+position = Vector2( 84.4369, 185.608 )
+
+[node name="Bullets2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 181.268, 187.196 )
+
+[node name="Bullets4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 122.535, 152.49 )
+
+[node name="Bullets5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 162.581, 127.795 )
+
+[node name="Bullets6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 108.52, 101.099 )
+
+[node name="Bullets3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 290.005, 180.052 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 4 )
+
+[node name="Zombie" parent="Navigation2D" instance=ExtResource( 2 )]
+position = Vector2( -30.2722, 538.174 )
+
+[node name="PatrolPoints" type="Node2D" parent="Navigation2D/Zombie"]
+
+[node name="Position2D" type="Position2D" parent="Navigation2D/Zombie/PatrolPoints"]
+position = Vector2( 440.63, 0 )
+
+[node name="Position2D2" type="Position2D" parent="Navigation2D/Zombie/PatrolPoints"]
+position = Vector2( -282.541, 0 )

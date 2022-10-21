@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art assets/gun_ui.png" type="Texture" id=1]
+
+[node name="BulletIdle" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.933333, 0.894118, 0.286275, 1 )
+light_mask = 0
+position = Vector2( 0, 16.4217 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 37, 386, 48, 76 )
