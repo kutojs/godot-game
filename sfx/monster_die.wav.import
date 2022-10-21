@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster_die.wav-6be1a7f9cbf271e788ea8f23f6ccbbbd.sample"
+
+[deps]
+
+source_file="res://sfx/monster_die.wav"
+dest_files=[ "res://.import/monster_die.wav-6be1a7f9cbf271e788ea8f23f6ccbbbd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cough.wav-159e19109b08592dba23a57dc7d251ea.sample"
+
+[deps]
+
+source_file="res://sfx/cough.wav"
+dest_files=[ "res://.import/cough.wav-159e19109b08592dba23a57dc7d251ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

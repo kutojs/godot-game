@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grab_ground.wav-d2884bf9df9af6f01aff0c16115af4f9.sample"
+
+[deps]
+
+source_file="res://sfx/grab_ground.wav"
+dest_files=[ "res://.import/grab_ground.wav-d2884bf9df9af6f01aff0c16115af4f9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

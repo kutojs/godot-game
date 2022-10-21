@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/long_cough.wav-8f4fafc846509b9d5d23b8c1588d0dfa.sample"
+
+[deps]
+
+source_file="res://sfx/long_cough.wav"
+dest_files=[ "res://.import/long_cough.wav-8f4fafc846509b9d5d23b8c1588d0dfa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

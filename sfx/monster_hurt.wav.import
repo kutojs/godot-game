@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster_hurt.wav-6c9ca47a792cfac6df6b2fc1248aeb5c.sample"
+
+[deps]
+
+source_file="res://sfx/monster_hurt.wav"
+dest_files=[ "res://.import/monster_hurt.wav-6c9ca47a792cfac6df6b2fc1248aeb5c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

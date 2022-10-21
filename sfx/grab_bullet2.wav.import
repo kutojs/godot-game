@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grab_bullet2.wav-f46c4c168aff8da3d6d6119b2f4b619a.sample"
+
+[deps]
+
+source_file="res://sfx/grab_bullet2.wav"
+dest_files=[ "res://.import/grab_bullet2.wav-f46c4c168aff8da3d6d6119b2f4b619a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
